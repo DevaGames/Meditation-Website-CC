@@ -1,1 +1,57 @@
+<!DOCTYPE HTML>
 
+<html>
+
+<head>
+    <title>Meditation Website</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="video">
+        <video autoplay muted loop id="bg-video">
+            <source src="assets/download (2).mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="app">
+        <div class="focus"></div>
+    </div>
+
+    <div class="audio">
+        <audio id="player" autoplay loop>
+            <source src="assets/download (2).mp3" type="audio/mpeg">
+        </audio>
+
+    </div>
+
+    <img src="assets/pause.png" alt="pause" onclick="switchF(false)">
+
+    <img src="assets/vdown.png" alt="volume down" onclick="volume(-0.1)">
+
+    <input type="range" min="1" max="100" value="100" id="vrange">
+
+    <img src="assets/vup.png" alt="volume up" onclick="volume(0.1)">
+
+    <img src="assets/play.png" alt="play/resume" onclick="switchF(true)">
+
+    <script defer>
+        function volume(amount){
+            document.getElementById("player").volume += amount;
+            document.getElementById("vrange").value = document.getElementById("player").volume * 100;
+        }
+        function switchF(play){
+            switch(play){
+                case true:
+                    document.getElementById('player').play();
+                    break;
+                default:
+                    document.getElementById('player').pause();
+                    break;
+            }
+        }
+    </script>
+    <div class="video-button">
+
+    </div>
+</body>
+</html>
